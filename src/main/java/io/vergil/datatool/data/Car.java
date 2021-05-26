@@ -6,7 +6,7 @@ import java.util.Date;
 public class Car {
 
     private String id;
-    private Date date;
+    private Date date_;
     private String hphm;
     private String cx;
     private String ys;
@@ -21,12 +21,12 @@ public class Car {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDate_() {
+        return date_;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate_(Date date_) {
+        this.date_ = date_;
     }
 
     public String getHphm() {
@@ -73,11 +73,23 @@ public class Car {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(id).append(",");
-        sb.append(sdf.format(date)).append(",");
+        sb.append(sdf.format(date_)).append(",");
         sb.append(hphm).append(",");
         sb.append(cx).append(",");
         sb.append(ys).append(",");
         sb.append(location).append("\n");
+        return sb.toString();
+    }
+
+    public String toSql() {
+        StringBuilder sb = new StringBuilder("insert into test.car1 values(");
+        sb.append("\"").append(id).append("\"").append(",");
+        sb.append("\"").append(sdf.format(date_)).append("\"").append(",");
+        sb.append("\"").append(hphm).append("\"").append(",");
+        sb.append("\"").append(cx).append("\"").append(",");
+        sb.append("\"").append(ys).append("\"").append(",");
+        sb.append("\"").append(location).append("\"");
+        sb.append(")");
         return sb.toString();
     }
 }

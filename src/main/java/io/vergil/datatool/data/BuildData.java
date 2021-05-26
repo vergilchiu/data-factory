@@ -69,7 +69,7 @@ public class BuildData {
         for (int i = 0; i < getCountOfCar(countOfCar); i++) {
             Car carVo = new Car();
             carVo.setId(getId());
-            carVo.setDate(date);
+            carVo.setDate_(date);
             carVo.setHphm(getHphm());
             carVo.setCx(getModel());
             carVo.setYs(getColor());
